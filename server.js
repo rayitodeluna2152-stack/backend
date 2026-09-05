@@ -3,11 +3,9 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const express = require('express');
 const cors = require('cors');
 const app = express();
+
 app.use(cors());
 app.use(express.json());
-
-// ------------------ SERVIR ARCHIVOS (OPCIONAL) ------------------
-app.use(express.static(__dirname + '/../'));
 
 // ------------------ RUTA DE PAGO ------------------
 app.post("/crear-pago", async (req, res) => {
